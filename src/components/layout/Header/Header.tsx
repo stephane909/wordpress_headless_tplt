@@ -1,5 +1,6 @@
 import { NavLink } from 'react-router-dom'
 import { usePages } from '../../../hooks/usePages'
+import bkdLogo from '../../../assets/img/bkd_logo.png'
 import styles from './Header.module.scss'
 
 export function Header() {
@@ -9,7 +10,7 @@ export function Header() {
     <header className={styles.header}>
       <div className={styles.inner}>
         <NavLink to="/" className={styles.logo}>
-          Broken District
+          <img src={bkdLogo} alt="Broken District" />
         </NavLink>
         <nav className={styles.nav}>
           {pages.map((page) => (
