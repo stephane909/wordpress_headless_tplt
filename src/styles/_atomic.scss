@@ -26,3 +26,54 @@ $spacing-props: (
     .#{$prefix}_#{$val} { #{$property}: #{$val}px; }
   }
 }
+
+// Flexbox
+.flex        { display: flex; }
+.inline-flex { display: inline-flex; }
+
+// justify-content
+$justify-props: (
+  'start':   flex-start,
+  'end':     flex-end,
+  'center':  center,
+  'between': space-between,
+  'around':  space-around,
+  'evenly':  space-evenly,
+);
+
+@each $suffix, $value in $justify-props {
+  .flex-justify-#{$suffix} { justify-content: $value; }
+}
+
+// align-items
+$align-props: (
+  'start':    flex-start,
+  'end':      flex-end,
+  'center':   center,
+  'stretch':  stretch,
+  'baseline': baseline,
+);
+
+@each $suffix, $value in $align-props {
+  .flex-align-#{$suffix} { align-items: $value; }
+}
+
+// flex-direction
+$direction-props: (
+  'row':     row,
+  'col':     column,
+  'row-rev': row-reverse,
+  'col-rev': column-reverse,
+);
+
+@each $suffix, $value in $direction-props {
+  .flex-direction-#{$suffix} { flex-direction: $value; }
+}
+
+// flex-wrap
+.flex-wrap   { flex-wrap: wrap; }
+.flex-nowrap { flex-wrap: nowrap; }
+
+// flex-grow / shrink
+.flex-grow   { flex-grow: 1; }
+.flex-shrink { flex-shrink: 1; }
