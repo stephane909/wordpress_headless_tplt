@@ -1,0 +1,15 @@
+@use '../../../styles/variables' as *;
+@use '../../../styles/mixins' as *;
+
+.footer {
+  background-color: $color-primary;
+  color: rgba($color-white, 0.6);
+  margin-top: auto;
+}
+
+.inner {
+  @include container;
+  padding-block: $space-6;
+  text-align: center;
+  font-size: $font-size-sm;
+}

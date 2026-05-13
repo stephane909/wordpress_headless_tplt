@@ -1,0 +1,50 @@
+@use '../../../styles/variables' as *;
+@use '../../../styles/mixins' as *;
+
+.header {
+  background-color: $color-primary;
+  color: $color-white;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: $shadow-md;
+}
+
+.inner {
+  @include container;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 64px;
+}
+
+.logo {
+  font-size: $font-size-lg;
+  font-weight: $font-weight-bold;
+  color: $color-white;
+  text-decoration: none;
+  letter-spacing: -0.02em;
+
+  &:hover {
+    color: $color-highlight;
+    text-decoration: none;
+  }
+}
+
+.nav {
+  display: flex;
+  gap: $space-6;
+
+  a {
+    color: rgba($color-white, 0.8);
+    text-decoration: none;
+    font-size: $font-size-sm;
+    font-weight: $font-weight-medium;
+    transition: color $transition-base;
+
+    &:hover,
+    &.active {
+      color: $color-white;
+    }
+  }
+}
