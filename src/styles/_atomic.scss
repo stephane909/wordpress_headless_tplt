@@ -22,7 +22,7 @@ $spacing-props: (
 
 @each $prefix, $property in $spacing-props {
   @for $i from 0 through 20 {
-    $val: $i * 5;
+    $val: $i * 10;
     .#{$prefix}_#{$val} { #{$property}: #{$val}px; }
   }
 }
