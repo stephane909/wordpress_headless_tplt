@@ -1,0 +1,28 @@
+// Width & Height — w_0 to w_100 / h_0 to h_100 (step 5, %)
+@for $i from 0 through 20 {
+  $val: $i * 5;
+
+  .w_#{$val} { width: #{$val + '%'}; }
+  .h_#{$val} { height: #{$val + '%'}; }
+}
+
+// Padding & Margin — p_0 to p_100 / m_0 to m_100 + directional (step 5, px)
+$spacing-props: (
+  'p':  padding,
+  'pt': padding-top,
+  'pr': padding-right,
+  'pb': padding-bottom,
+  'pl': padding-left,
+  'm':  margin,
+  'mt': margin-top,
+  'mr': margin-right,
+  'mb': margin-bottom,
+  'ml': margin-left,
+);
+
+@each $prefix, $property in $spacing-props {
+  @for $i from 0 through 20 {
+    $val: $i * 5;
+    .#{$prefix}_#{$val} { #{$property}: #{$val}px; }
+  }
+}
