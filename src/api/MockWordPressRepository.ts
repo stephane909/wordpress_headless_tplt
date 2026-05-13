@@ -12,11 +12,14 @@ export class MockWordPressRepository implements IWordPressRepository {
     const page = params.page ?? 1
     const perPage = params.per_page ?? 10
     const start = (page - 1) * perPage
+    const sorted = [...mockPosts].sort(
+      (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()
+    )
     const filtered = params.search
-      ? mockPosts.filter((p) =>
+      ? sorted.filter((p) =>
           p.title.rendered.toLowerCase().includes(params.search!.toLowerCase())
         )
-      : mockPosts
+      : sorted
     return {
       data: filtered.slice(start, start + perPage),
       total: filtered.length,
