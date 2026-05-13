@@ -1,23 +1,26 @@
 import { NavLink } from 'react-router-dom'
+import { usePages } from '../../../hooks/usePages'
 import styles from './Header.module.scss'
 
 export function Header() {
+  const { pages } = usePages()
+
   return (
     <header className={styles.header}>
       <div className={styles.inner}>
         <NavLink to="/" className={styles.logo}>
-          WP Headless
+          Broken District
         </NavLink>
         <nav className={styles.nav}>
-          <NavLink to="/" className={({ isActive }) => (isActive ? styles.active : '')}>
-            Blog
-          </NavLink>
-          <NavLink to="/page/a-propos" className={({ isActive }) => (isActive ? styles.active : '')}>
-            À propos
-          </NavLink>
-          <NavLink to="/page/contact" className={({ isActive }) => (isActive ? styles.active : '')}>
-            Contact
-          </NavLink>
+          {pages.map((page) => (
+            <NavLink
+              key={page.id}
+              to={`/page/${page.slug}`}
+              className={({ isActive }) => (isActive ? styles.active : '')}
+            >
+              <span dangerouslySetInnerHTML={{ __html: page.title.rendered }} />
+            </NavLink>
+          ))}
         </nav>
       </div>
     </header>
