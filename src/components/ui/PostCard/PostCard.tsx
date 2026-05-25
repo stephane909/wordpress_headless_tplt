@@ -5,9 +5,10 @@ import styles from "./PostCard.module.scss";
 
 interface PostCardProps {
   post: WPPost;
+  index?: number;
 }
 
-export function PostCard({ post }: PostCardProps) {
+export function PostCard({ post, index = 0 }: PostCardProps) {
   const image = post._embedded?.["wp:featuredmedia"]?.[0];
   const author = post._embedded?.author?.[0];
   const { ref, isVisible } = useIntersectionObserver()
@@ -32,6 +33,7 @@ export function PostCard({ post }: PostCardProps) {
     <article
       ref={ref as React.RefObject<HTMLElement>}
       className={`${styles.card} ${isVisible ? styles.visible : ''}`}
+      style={{ transitionDelay: `${index * 0.1}s` }}
       data-image={image?.source_url}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}

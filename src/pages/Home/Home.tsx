@@ -19,8 +19,8 @@ export function Home() {
 
         {!loading && posts.length > 0 && (
           <div className={styles.grid}>
-            {posts.map((post) => (
-              <PostCard key={post.id} post={post} />
+            {posts.map((post, i) => (
+              <PostCard key={post.id} post={post} index={i} />
             ))}
           </div>
         )}
