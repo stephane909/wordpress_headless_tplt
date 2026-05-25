@@ -1,10 +1,10 @@
-import { NavLink } from 'react-router-dom'
-import { usePages } from '../../../hooks/usePages'
-import bkdLogo from '../../../assets/img/bkd_logo.png'
-import styles from './Header.module.scss'
+import { NavLink } from "react-router-dom";
+import { usePages } from "../../../hooks/usePages";
+import bkdLogo from "../../../assets/brokenDistrict_logo.svg";
+import styles from "./Header.module.scss";
 
 export function Header() {
-  const { pages } = usePages()
+  const { pages } = usePages();
 
   return (
     <header className={styles.header}>
@@ -17,7 +17,7 @@ export function Header() {
             <NavLink
               key={page.id}
               to={`/page/${page.slug}`}
-              className={({ isActive }) => (isActive ? styles.active : '')}
+              className={({ isActive }) => (isActive ? styles.active : "")}
             >
               <span dangerouslySetInnerHTML={{ __html: page.title.rendered }} />
             </NavLink>
@@ -25,5 +25,5 @@ export function Header() {
         </nav>
       </div>
     </header>
-  )
+  );
 }

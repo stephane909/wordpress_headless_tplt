@@ -1,7 +1,29 @@
 @use 'variables' as *;
 @use 'mixins' as *;
+@use 'fonts';
 @use 'reset';
 @use 'atomic';
+
+// Hover image overlay — right half of screen
+body::after {
+  content: '';
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 50%;
+  height: 100%;
+  background-image: var(--hover-image);
+  background-size: cover;
+  background-position: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.4s ease;
+  z-index: 0;
+}
+
+body.show-hover-image::after {
+  opacity: 1;
+}
 
 // WP content
 .wp-content {
